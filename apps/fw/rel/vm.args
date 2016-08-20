@@ -1,3 +1,7 @@
+# Bear in mind how insecure this is!
+-setcookie cultivate
+
+
 ## Start the Elixir shell
 -noshell
 -user Elixir.IEx.CLI
