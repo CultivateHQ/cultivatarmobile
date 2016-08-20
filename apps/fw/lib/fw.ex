@@ -1,9 +1,6 @@
 defmodule Fw do
   use Application
 
-  # @wifi_opts [ssid: "peso", key_mgmt: :"WPA-PSK", psk: "tw34k-bunny"]
-
-
   @wifi_opts Application.get_env(:fw, :wifi_opts)
 
   def start(_type, _args) do
@@ -13,6 +10,7 @@ defmodule Fw do
     children = [
       worker(Nerves.InterimWiFi, ["wlan0", @wifi_opts], function: :setup),
       worker(Fw.Ntp, []),
+      worker(Fw.DistrubuteNode, []),
     ]
 
     opts = [strategy: :one_for_one, name: Fw.Supervisor]
