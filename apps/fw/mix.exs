@@ -23,7 +23,7 @@ defmodule Fw.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Fw, []},
-     applications: [:logger, :nerves_interim_wifi, :porcelain]]
+     applications: [:logger, :nerves_interim_wifi, :porcelain, :cb_slack, :runtime_tools]]
   end
 
   def deps do
@@ -34,6 +34,7 @@ defmodule Fw.Mixfile do
     [
       {:"nerves_system_#{target}", ">= 0.0.0"},
       {:nerves_interim_wifi, "~> 0.0.2"},
+      {:cb_slack, in_umbrella: true},
       {:porcelain, ">= 0.0.0" }
     ]
   end
