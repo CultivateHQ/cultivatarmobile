@@ -11,7 +11,7 @@ defmodule Fw.Mixfile do
      deps_path: "../../deps/",
      build_path: "../../_build/#{@target}",
      config_path: "../../config/config.exs",
-     lock_file: "../../mix.lock",
+     lockfile: "../../mix.lock",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases,
@@ -23,7 +23,7 @@ defmodule Fw.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Fw, []},
-     applications: [:logger, :nerves_interim_wifi, :porcelain, :cb_slack, :runtime_tools]]
+     applications: [:logger, :nerves_interim_wifi, :porcelain, :cb_slack, :elixir_ale, :runtime_tools]]
   end
 
   def deps do
@@ -34,6 +34,7 @@ defmodule Fw.Mixfile do
     [
       {:"nerves_system_#{target}", ">= 0.0.0"},
       {:nerves_interim_wifi, "~> 0.0.2"},
+      {:elixir_ale, "~> 0.5.6"},
       {:cb_slack, in_umbrella: true},
       {:porcelain, ">= 0.0.0" }
     ]
