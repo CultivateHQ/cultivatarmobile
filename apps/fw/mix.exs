@@ -14,8 +14,8 @@ defmodule Fw.Mixfile do
      lockfile: "../../mix.lock",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     aliases: aliases,
-     deps: deps ++ system(@target)]
+     aliases: aliases(Mix.env),
+     deps: deps ++ system(@target, Mix.env)]
   end
 
   # Configuration for the OTP application.
@@ -23,26 +23,38 @@ defmodule Fw.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Fw, []},
-     applications: [:logger, :nerves_interim_wifi, :porcelain, :cb_slack, :elixir_ale, :runtime_tools]]
+     applications: applications(Mix.env)]
   end
+
+
 
   def deps do
-    [{:nerves, "~> 0.3.0"}]
-  end
-
-  def system(target) do
     [
-      {:"nerves_system_#{target}", ">= 0.0.0"},
-      {:nerves_interim_wifi, "~> 0.0.2"},
-      {:elixir_ale, "~> 0.5.6"},
+      {:nerves, "~> 0.3.0"},
+      {:nerves_interim_wifi, "~> 0.0.2", only: :prod},
+      {:elixir_ale, "~> 0.5.6", only: :prod},
       {:cb_slack, in_umbrella: true},
-      {:porcelain, ">= 0.0.0" }
+      {:porcelain, ">= 0.0.0" },
     ]
   end
 
-  def aliases do
+  def system(target, :prod) do
+    [
+      {:"nerves_system_#{target}", ">= 0.0.0"},
+    ]
+  end
+  def system(_, _), do: []
+
+  defp applications(:prod), do: [:nerves_interim_wifi, :elixir_ale | general_apps]
+  defp applications(_), do: general_apps
+
+
+  defp general_apps, do: [:logger, :porcelain, :cb_slack, :runtime_tools]
+
+  def aliases(:prod) do
     ["deps.precompile": ["nerves.precompile", "deps.precompile"],
      "deps.loadpaths":  ["deps.loadpaths", "nerves.loadpaths"]]
   end
+  def aliases(_), do: []
 
 end

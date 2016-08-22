@@ -23,12 +23,11 @@ defmodule Fw.Ntp do
 
   @name __MODULE__
 
-  # if :prod == Mix.env do
-  #   @command "ntpd -n -q -p time.euro.apple.com"
-  # else
-  #   @command "cat /dev/null"
-  # end
-  @command "ntpd -n -q -p time.euro.apple.com"
+  if :prod == Mix.env do
+    @command "ntpd -n -q -p time.euro.apple.com"
+  else
+    @command "cat /dev/null"
+  end
 
 
   @name __MODULE__
