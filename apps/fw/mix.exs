@@ -34,6 +34,7 @@ defmodule Fw.Mixfile do
       {:nerves_interim_wifi, "~> 0.0.2", only: :prod},
       {:elixir_ale, "~> 0.5.6", only: :prod},
       {:cb_slack, in_umbrella: true},
+      {:cb_web, in_umbrella: true},
       {:porcelain, ">= 0.0.0" },
     ]
   end
@@ -49,7 +50,7 @@ defmodule Fw.Mixfile do
   defp applications(_), do: general_apps
 
 
-  defp general_apps, do: [:logger, :porcelain, :cb_slack, :runtime_tools]
+  defp general_apps, do: [:logger, :porcelain, :cb_slack, :runtime_tools, :cb_web]
 
   def aliases(:prod) do
     ["deps.precompile": ["nerves.precompile", "deps.precompile"],

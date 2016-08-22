@@ -1,0 +1,111 @@
+body {
+    background:
+    radial-gradient(#08141b 15%, transparent 16%) 0 0,
+    radial-gradient(#08141b 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+    background-color:#18242b;
+    background-size:16px 16px;
+}
+.home-link {
+    display: table;
+    margin: 0 auto;
+}
+
+.home-link a {
+    font-family: "Roboto Condensed", sans-serif;
+    color: #AAA;
+}
+
+.footer {
+    display: table;
+    padding: 1em;
+    margin: 0 auto;
+}
+
+p.message {
+    color: #AAA;
+    display: table;
+    margin: 0 auto;
+}
+
+.controller {
+    font-family: "Roboto Condensed", sans-serif;
+    margin: 20px auto;
+    display: table;
+    border: 1px solid #828c95;
+    background: #b5bdc8; /* Old browsers */
+    background: -moz-linear-gradient(top, #b5bdc8 0%, #828c95 5%, #28343b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #b5bdc8 0%,#828c95 5%,#28343b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #b5bdc8 0%,#828c95 5%,#28343b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    padding: 1em;
+    zoom: 1;
+    overflow: hidden;
+    border-radius: 0.5em;
+    -webkit-box-shadow: 0 0 30px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 30px 0 rgba(0,0,0,0.75);
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.75);
+}
+.controller__right-controls { float: right;}
+.controller__left-controls { float: left; margin-right: 1em;}
+
+table {
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 0.333em;
+    background: #28343b; /* Old browsers */
+    background: -moz-linear-gradient(top, #28343b 0%, #828c95 90%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #28343b 0%,#828c95 90%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #28343b 0%,#828c95 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    padding: 0.5em;
+    -webkit-box-shadow: inset 0 5px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset 0 5px 5px 0px rgba(0,0,0,0.25);
+    box-shadow: inset 0 5px 5px 0px rgba(0,0,0,0.25);
+}
+
+td { padding: 0.25em 0.5em}
+
+.controller__music { margin-bottom: 1em;}
+
+.controller__title {
+    font-weight: normal;
+    padding: 0.25em;
+    border-radius: 0.25em;
+    background: rgba(24,36,43, 0.4);
+    color: #AAA;
+    margin-bottom: 0.25em;
+    text-shadow: 0 0 5px #000;
+    -webkit-box-shadow: inset 0 -5px 15px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset 0 -5px 15px 0px rgba(0,0,0,0.25);
+    box-shadow: inset 0 -5px 15px 0px rgba(0,0,0,0.25);
+}
+
+input[type=submit], button[type=submit] {
+    background: #333; /* Old browsers */
+    background: -moz-linear-gradient(top, #333 0%, #000 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #333 0%,#000 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #333 0%,#000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    border: 1px solid #222;
+    border-radius: 0.5em;
+    height: 70px;
+    margin-bottom: 0;
+    -webkit-box-shadow: 0 5px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0 5px 5px 0px rgba(0,0,0,0.25);
+    box-shadow: 0 5px 5px 0px rgba(0,0,0,0.25);
+    color: #CCC;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    padding: 0.5em 1em;
+}
+
+.controller__steps input[type=number] {
+    font-size: 16px;
+    padding: 0.5em 1em;
+    width: 70px;
+    margin-right: 0.5em;
+}
+.controller__steps input[type=submit], button {
+    height: auto;
+    font-size: 16px;
+}
