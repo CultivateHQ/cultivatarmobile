@@ -11,6 +11,7 @@ defmodule Fw do
       worker(Nerves.InterimWiFi, ["wlan0", @wifi_opts], function: :setup),
       worker(Fw.Ntp, []),
       worker(Fw.DistrubuteNode, []),
+      supervisor(Fw.Locomotion.LocomotionSupervisor, [])
     ]
 
     opts = [strategy: :one_for_one, name: Fw.Supervisor]
