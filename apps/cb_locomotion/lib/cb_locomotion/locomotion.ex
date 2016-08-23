@@ -1,4 +1,4 @@
-defmodule Fw.Locomotion.Locomotion do
+defmodule CbLocomotion.Locomotion do
   @moduledoc """
   The main interface for moving the robot. Interacts with the two stepper motors
   to move the robot forward, back, left, right, stop, and set the rate at which
@@ -7,7 +7,7 @@ defmodule Fw.Locomotion.Locomotion do
 
   @name __MODULE__
   use GenServer
-  alias Fw.Locomotion.StepperMotor
+  alias CbLocomotion.StepperMotor
 
   def start_link do
     GenServer.start_link(__MODULE__, [], name: @name)

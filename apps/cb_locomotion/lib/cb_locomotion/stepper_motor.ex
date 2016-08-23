@@ -1,4 +1,4 @@
-defmodule Fw.Locomotion.StepperMotor do
+defmodule CbLocomotion.StepperMotor do
   use GenServer
   # alias Saxophone.StepperMotor
 

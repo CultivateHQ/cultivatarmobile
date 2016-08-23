@@ -1,6 +1,6 @@
 defmodule LoccomotionTest do
   use ExUnit.Case
-  alias Fw.Locomotion.{StepperMotor, Locomotion}
+  alias CbLocomotion.{StepperMotor, Locomotion}
 
 
 

@@ -22,6 +22,7 @@ defmodule CbSlack.Mixfile do
   defp deps do
     [
       {:websocket_client, github: "jeremyong/websocket_client"},
+      {:cb_locomotion, in_umbrella: :true},
       {:restarter, "~> 0.1.0"},
       {:slacker, ">= 0.0.0"},
     ]

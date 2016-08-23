@@ -1,6 +1,6 @@
-defmodule Fw.Locomotion.StepperMotorTest do
+defmodule CbLocomotion.StepperMotorTest do
   use ExUnit.Case
-  alias Fw.Locomotion.StepperMotor
+  alias CbLocomotion.StepperMotor
 
   @pins [30, 31, 32, 33]
 

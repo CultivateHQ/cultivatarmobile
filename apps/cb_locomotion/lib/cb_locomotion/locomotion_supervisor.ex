@@ -1,4 +1,4 @@
-defmodule Fw.Locomotion.LocomotionSupervisor do
+defmodule CbLocomotion.LocomotionSupervisor do
   @moduledoc """
   Supervises the StepperMotors and the Locomotion interface.
 
@@ -15,9 +15,9 @@ defmodule Fw.Locomotion.LocomotionSupervisor do
 
   def init([]) do
     children = [
-      worker(Fw.Locomotion.StepperMotor, [@stepper_pins[:right], [name: :right_stepper]], id: :left),
-      worker(Fw.Locomotion.StepperMotor, [@stepper_pins[:left], [name: :left_stepper]], id: :right),
-      worker(Fw.Locomotion.Locomotion, []),
+      worker(CbLocomotion.StepperMotor, [@stepper_pins[:right], [name: :right_stepper]], id: :left),
+      worker(CbLocomotion.StepperMotor, [@stepper_pins[:left], [name: :left_stepper]], id: :right),
+      worker(CbLocomotion.Locomotion, []),
     ]
 
     supervise(children, strategy: :one_for_all)
