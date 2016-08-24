@@ -6,7 +6,7 @@ defmodule CbWeb.Html do
   @compiled_at :calendar.universal_time
   @css File.read!(__DIR__ <> "/cultivatormobile.css")
 
-  alias Fw.Locomotion.{StepperMotor}
+  alias CbLocomotion.StepperMotor
 
   def css do
     @css

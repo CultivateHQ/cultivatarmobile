@@ -15,7 +15,7 @@ defmodule CbSlack.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :restarter, :slacker, :websocket_client],
+    [applications: [:logger, :restarter, :slacker, :websocket_client, :cb_locomotion],
      mod: {CbSlack, []}]
   end
 
