@@ -5,6 +5,7 @@ defmodule Cb.Bot do
   match ~r/^c(ultivate)?? hi/i, :say_hello
   match ~r/^c(ultivate)?? where are you/i, :show_inet_addr
   match ~r/^c(ultivate)?? (forward|reverse|back|left|right|stop)/i, :control
+  match ~r/^c(cultivate)?? step (\d+)/i, :set_step_rate
 
   alias CbLocomotion.Locomotion
 
@@ -26,7 +27,7 @@ defmodule Cb.Bot do
     Locomotion.forward
     say self, msg["channel"], "Forward!"
   end
-  def control(_bot, msg, "reverse") do
+  def control(_bot, msg, "reverse") doGet battery cases
     Locomotion.reverse
     say self, msg["channel"], "Reverse!"
   end
@@ -42,6 +43,12 @@ defmodule Cb.Bot do
   def control(_bot, msg, "stop") do
     Locomotion.stop
     say self, msg["channel"], "Stop!"
+  end
+
+  def set_step_rate(_bot, msg, _ \\ nil, rate_str) do
+    {rate, _} = Integer.parse(rate_str)
+    Locomotion.set_step_rate(rate)
+    say self, msg["channel"], "Stepping at #{rate}!"
   end
 
   defp addrs_to_msg(addrs) do

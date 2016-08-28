@@ -15,7 +15,7 @@ defmodule CbWeb.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :plug, :cowboy],
+    [applications: [:logger, :plug, :cowboy, :cb_locomotion],
      mod: {CbWeb, []}]
   end
 
@@ -23,6 +23,7 @@ defmodule CbWeb.Mixfile do
     [
       {:plug, ">= 0.0.0"},
       {:cowboy, ">= 0.0.0"},
+      {:cb_locomotion, in_umbrella: true},
       # {:fw, in_umbrella: true},
     ]
   end

@@ -18,6 +18,10 @@ defmodule CbLocomotion.Locomotion do
     GenServer.call(@name, {:set_step_rate, step_rate})
   end
 
+  def get_step_rate do
+    GenServer.call(@name, :get_step_rate)
+  end
+
   def forward do
     GenServer.call(@name, :forward)
   end
@@ -50,6 +54,11 @@ defmodule CbLocomotion.Locomotion do
     :right_stepper |> StepperMotor.set_step_rate(step_rate)
 
     {:reply, :ok, state}
+  end
+
+  def handle_call(:get_step_rate, _from, state) do
+    rate = StepperMotor.state(:right_stepper).step_millis
+    {:reply, rate, state}
   end
 
   def handle_call(:forward, _from, state) do

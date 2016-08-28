@@ -6,14 +6,14 @@ defmodule CbWeb.Html do
   @compiled_at :calendar.universal_time
   @css File.read!(__DIR__ <> "/cultivatormobile.css")
 
-  alias CbLocomotion.StepperMotor
+  alias CbLocomotion.Locomotion
 
   def css do
     @css
   end
 
   def control_page(message) do
-    step_rate = (:right_stepper |> StepperMotor.state).step_millis
+    step_rate = Locomotion.get_step_rate
     now = :erlang.universaltime
     """
     <html>

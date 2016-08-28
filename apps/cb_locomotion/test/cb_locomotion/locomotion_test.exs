@@ -8,6 +8,7 @@ defmodule LoccomotionTest do
     Locomotion.set_step_rate(20)
     assert StepperMotor.state(:right_stepper).step_millis == 20
     assert StepperMotor.state(:left_stepper).step_millis == 20
+    assert Locomotion.get_step_rate == 20
   end
 
 
