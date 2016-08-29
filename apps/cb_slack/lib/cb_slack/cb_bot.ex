@@ -7,7 +7,11 @@ defmodule Cb.Bot do
   match ~r/^c(ultivate)?? (forward|reverse|back|left|right|stop)/i, :control
   match ~r/^c(cultivate)?? step (\d+)/i, :set_step_rate
 
+  match ~r/^c(ultivate)?? pin test\s*$/i, :start_pin_test
+  match ~r/^c(ultivate)?? pin test end/i, :stop_pin_test
+
   alias CbLocomotion.Locomotion
+  alias CbLocomotion.PinTest
 
   def say_hello(_bot, msg, _ \\ nil) do
     say self, msg["channel"], "¡Hola!"
@@ -27,7 +31,7 @@ defmodule Cb.Bot do
     Locomotion.forward
     say self, msg["channel"], "Forward!"
   end
-  def control(_bot, msg, "reverse") doGet battery cases
+  def control(_bot, msg, "reverse") do
     Locomotion.reverse
     say self, msg["channel"], "Reverse!"
   end
@@ -49,6 +53,18 @@ defmodule Cb.Bot do
     {rate, _} = Integer.parse(rate_str)
     Locomotion.set_step_rate(rate)
     say self, msg["channel"], "Stepping at #{rate}!"
+  end
+
+
+  def start_pin_test(_bot, msg, _ \\ nil) do
+    PinTest.start_test
+    say self, msg["channel"], "Testing pins!"
+  end
+
+
+  def stop_pin_test(_bot, msg, _ \\ nil) do
+    PinTest.finish_test
+    say self, msg["channel"], "Stopping pin test!"
   end
 
   defp addrs_to_msg(addrs) do

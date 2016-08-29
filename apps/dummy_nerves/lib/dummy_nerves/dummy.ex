@@ -43,14 +43,17 @@ defmodule Gpio do
   use GenServer
 
   @moduledoc """
-  Stand in for Elixir Ale's Gpio in development mode
+  Stand in for Elixir Ale's Gpio in development and test mode
   """
 
   defstruct pin: 0, direction: nil, pin_states: []
 
   def start_link(pin, direction, supplied_opts \\ nil) do
     opts = supplied_opts || [name: :"gpio_#{pin}"]
-    GenServer.start_link(__MODULE__, {pin, direction}, opts)
+    case Process.whereis(opts[:name]) do
+      nil -> GenServer.start_link(__MODULE__, {pin, direction}, opts)
+      pid -> {:ok, pid}
+    end
   end
 
   @doc """

@@ -9,6 +9,7 @@ defmodule CbLocomotion do
     # Define workers and child supervisors to be supervised
     children = [
       supervisor(CbLocomotion.LocomotionSupervisor, []),
+      worker(CbLocomotion.PinTest, [])
     ]
 
     opts = [strategy: :one_for_one, name: CbLocomotion.Supervisor]

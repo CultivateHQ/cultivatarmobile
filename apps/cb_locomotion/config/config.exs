@@ -9,4 +9,6 @@ use Mix.Config
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations
 
+config :cb_locomotion, :gpio_pins_to_test, 2..27
+
 # import_config "#{Mix.Project.config[:target]}.exs"
