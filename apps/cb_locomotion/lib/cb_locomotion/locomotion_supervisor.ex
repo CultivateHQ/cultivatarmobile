@@ -7,7 +7,7 @@ defmodule CbLocomotion.LocomotionSupervisor do
   """
   use Supervisor
 
-  @stepper_pins Application.get_env(:fw, :steppers)
+  @stepper_pins Application.get_env(:cb_locomotion, :steppers)
 
   def start_link do
     Supervisor.start_link(__MODULE__, [], name: __MODULE__)
