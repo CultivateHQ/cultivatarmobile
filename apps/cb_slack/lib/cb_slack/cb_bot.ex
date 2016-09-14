@@ -2,6 +2,7 @@ defmodule Cb.Bot do
   use Slacker
   use Slacker.Matcher
 
+  match ~r/^c(ultivate)?? help/i, :help
   match ~r/^c(ultivate)?? hi/i, :say_hello
   match ~r/^c(ultivate)?? where are you/i, :show_inet_addr
   match ~r/^c(ultivate)?? (forward|reverse|back|left|right|stop)/i, :control
@@ -15,6 +16,27 @@ defmodule Cb.Bot do
 
   def say_hello(_bot, msg, _ \\ nil) do
     say self, msg["channel"], "¡Hola!"
+  end
+
+  def help(_bot, msg, _ \\ nil) do
+    say self, msg["channel"], """
+    Hello, I am the controller. Here is what you do.
+
+    `cultivate help`: show this message.
+    `cultivate hi`: say hello.
+    `cultivate where are you?`: display the IP addresses to which I'm connected.
+    `cultivate forward`: drive forward.
+    `cultivate reverse`: reverse.
+    `cultivate back`: reverse.
+    `cultivate left`: turn left.
+    `cultivate right`: turn right.
+    `cultivate stop`: stop.
+    `cultivate step (number)`: set the rate at which the stepper motors turn. The maximum is 0 (and pretty slow), and is also the default. 50 is incredibly slow.
+    `cultivate pin test`: flash all the GPIO pins every 0.5 seconds. This won't don't much with the motors but is handy for testing your GPIO header soldering.
+    `cultivate pin test end`: stop all that annoying GPIO flashing.
+
+    It is possible that you will get fed up with our brand placement. You can just write `c` instead of `cultivate`. (I do.)
+    """
   end
 
   def show_inet_addr(_bot, msg, _ \\ nil) do
