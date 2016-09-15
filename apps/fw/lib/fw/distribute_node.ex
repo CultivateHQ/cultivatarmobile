@@ -17,7 +17,7 @@ defmodule Fw.DistrubuteNode do
 
   end
 
-  @node_name "CultivatorMobile"
+  @node_name "CultivatarMobile"
 
   def start_link do
     GenServer.start_link(__MODULE__, {}, name: @name)

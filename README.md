@@ -25,7 +25,7 @@ Of course you do not have to use a PI Zero. Any PI (or other supported Nerves ta
 
 ## Soldering
 
-PI Zeros come without a means of securely attaching wires to the [GPIO](https://en.wikipedia.org/wiki/General-purpose_input/output) which is used to control the motors. If you use a PI Zero, then you'll want to solder on some GPIO headers. Here is one video I found on how to do it: https://www.youtube.com/watch?v=MSGIrtGMYRM
+PI Zeros come without a means of securely attaching wires to the [GPIO](https://en.wikipedia.org/wiki/General-purpose_input/output) which is used to control the motors. If you use a PI Zero, then you'll want to solder on some GPIO headers. Here is one video on how to do it: https://www.youtube.com/watch?v=MSGIrtGMYRM
 
 Another thing you will probably need to solder is the connection from the batteries to the power input of the ULN2003 stepper motor controller. We suggest connecting each the positive and ground to two female-ended jumper cables. See the illustration of the battery case in [the parts illustration](docs/robot_parts_sheet.pdf).
 
@@ -47,6 +47,8 @@ We used Lego to build the chassis, connecting the power bank and PI by attaching
     * GPIO 21 to IN1 on the right ULN2003 controller
 1. Connect the positive (marked '+') pins on both ULN2003 controller to the positive terminal of the battery case.
 1. Connect the negative (marked '-') pins on both ULN2003 controller to the negative terminal of the battery case.
+
+Note that some motors appear to be wired in reverse; if you find one (or two) going the opposite way to expected then simply reverse the wiring to the controller.
 
 ## Configuration
 
@@ -79,7 +81,7 @@ You can also run
 iex -S mix
 ```
 
-Your Slack Bot User should connect to your slack. You can say "Cultivatormobile help" in a channel to which your user has been invited, to receive the help message. Navigating to http://localhost:4000 should bring up the web interface.
+Your Slack Bot User should connect to your slack. You can say "cultivate help" in a channel to which your user has been invited, to receive the help message. Navigating to http://localhost:4000 should bring up the web interface.
 
 ## Deploying to your PI Zero
 
@@ -97,3 +99,32 @@ MIX_ENV=prod mix firmware.burn
 ```
 
 Insert the SD card to the PI. If all has gone well, then booting the PI should connect to your network and Slack.
+
+## The Code Structure
+
+This is an [Umbrella project](http://elixir-lang.org/getting-started/mix-otp/dependencies-and-umbrella-apps.html) containing the applications below. More details of each project may be in the project's README file.
+
+### [`fw`](apps/fw)
+
+This is the "master application" used to make the firmware releases. At the time of writing, Nerves uses [Exrm](https://github.com/bitwalker/exrm) to produce releases, and the Exrm convention is to have an application from which to build them. It is not an entirely dumb application; it is responsible for:
+
+* networking, ie connecting to WiFi
+* setting the time via [NTP](https://en.wikipedia.org/wiki/Network_Time_Protocol)
+* somewhat insecurely, making this Cultivatormobile instance a distributed Erlang node, with the name "CultivatarMobile@[IPV4 address]".
+
+### [`cb_locomotion`](apps/cb_locomotion)
+
+Controls the stepper motors, through the named `GenServer` [`CbLocomotion.Locomotion`](apps/cb_locomotion/lib/cb_locomotion/locomotion.ex).
+
+### [`cb_slack`](apps/cb_slack)
+
+Provides the [Slack](https://slack.com) interface to the Cultivtormobile. Remember to set your Slack token in `apps/cb_slack/config/secret.exs` (see configuration instructions above.)
+
+### [`cb_web`](apps/cb_web)
+
+Provides the web interface to the robot. It listens on port 80 in production (on the device) and port 4000 in development mode.
+
+### ['dummy_nerves'](apps/dummy_nerves)
+
+Provides fake versions of hardware specific code in development and test. This allows compilation on non-linux host environments, and (in the case of GPIO) ways of checking value changes in tests.
+
