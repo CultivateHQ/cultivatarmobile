@@ -63,7 +63,7 @@ Replace the placeholders in `apps/fw/config/secret.exs` with the details of your
 
 ## Building on your machine and testing
 
-In a slight departure normal normal [Nerves](https://github.com/nerves-project/nerves) practice, all the applications in the umbrella project are configured to be run on a host machine (such as a Mac) in `dev` and `test` modes. Building for the firmware image must be done with `MIX_ENV` set to `prod`.
+In a slight departure from normal [Nerves](https://github.com/nerves-project/nerves) practice, all the applications in the umbrella project are configured to be run on a host machine (such as a Mac) in `dev` and `test` modes. Building for the firmware image must be done with `MIX_ENV` set to `prod`.
 
 From the Umbrella application route you should be able to run.
 
