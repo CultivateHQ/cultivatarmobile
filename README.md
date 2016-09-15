@@ -1,6 +1,6 @@
 # Cultivatarmobile
 
-_The Cultivate Robot_, aka _The Cultivtormobile_, is a fun project to get started in developing hardware applications using [Nerves](https://github.com/nerves-project/nerves) - the embedded Elixir project. The project gives you a small buggy, powered by two (admittedly slow) Stepper motors which can be controlled directly over a web interface or via [Slack](https://slack.com).
+_The Cultivate Robot_, aka _The Cultivatarmobile_, is a fun project to get started in developing hardware applications using [Nerves](https://github.com/nerves-project/nerves) - the embedded Elixir project. The project gives you a small buggy, powered by two (admittedly slow) Stepper motors which can be controlled directly over a web interface or via [Slack](https://slack.com).
 
 Kits are to be given as prizes at [Elixir London 2016](http://www.elixir.london), but you can fairly easily build your own.
 
