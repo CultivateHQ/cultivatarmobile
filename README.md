@@ -19,6 +19,7 @@ A pictorial representation of the parts is [here](docs/robot_parts_sheet.pdf). H
 | Micro SD card, at least 4GB | Bigger is ok. eg https://www.amazon.co.uk/Kingston-8GB-Micro-SD-HC/dp/B001CQT0X4/ |
 | 2 x 28Byj stepper motors with ULN2003 controllers | eg 5 pieces from here https://www.amazon.co.uk/gp/product/B00SSQAITQ | 
 | Battery for stepper motors | For the giveaway we a used battery holder for 4 AA batteries, https://www.amazon.co.uk/gp/product/B00XHQ18DW. You need to provide between 5v and 12v to the steppers |
+| Wheels | 4tronix, a UK company, sell wheels that fit the stepper motors http://4tronix.co.uk/store/index.php?rt=product/product&keyword=wheels&category_id=0&product_id=176. Alternatively here's some 3D printing files that I have found http://www.thingiverse.com/thing:862438 |
 
 Of course you do not have to use a PI Zero. Any PI (or other supported Nerves target) should work. You may need to slightly modify `apps/fw/mix.exs`for other targets.
 
