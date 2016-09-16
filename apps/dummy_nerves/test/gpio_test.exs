@@ -3,6 +3,7 @@ defmodule GpioTest do
 
   setup do
     {:ok, pid} = Gpio.start_link(6, :output)
+    Gpio.reset_pin_states(pid)
     {:ok, pin6: pid}
   end
 
@@ -12,6 +13,10 @@ defmodule GpioTest do
     assert 1 == Gpio.read(pin6)
     Gpio.write(pin6, 0)
     assert 0 == Gpio.read(pin6)
+
+    Gpio.write(pin6, 1)
+    Gpio.reset_pin_states(pin6)
+    assert 0 == Gpio.read(pin6)
   end
 
   test 'logging', %{pin6: pin6} do
@@ -20,8 +25,10 @@ defmodule GpioTest do
     Gpio.write(pin6, 0)
     Gpio.write(pin6, 0)
     Gpio.write(pin6, 1)
-    Gpio.write(pin6, 0)
-    assert [1, 0, 0, 1, 0] == Gpio.pin_state_log(pin6)
+    Gpio.write(pin6, 1)
+    assert [1, 0, 0, 1, 1] == Gpio.pin_state_log(pin6)
+    Gpio.reset_pin_states(pin6)
+    assert [] == Gpio.pin_state_log(pin6)
   end
 
   test "asking for the same pin twice", %{pin6: pin6} do
