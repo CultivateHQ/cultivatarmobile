@@ -11,7 +11,7 @@ A pictorial representation of the parts is [here](docs/robot_parts_sheet.pdf). H
 | Part | Available from |
 |------|----------------|
 | Pi Zero (only) | PI Hut: https://thepihut.com/products/raspberry-pi-zero?variant=14062715972, or Pimoroni: https://shop.pimoroni.com/products/raspberry-pi-zero/ Note that stocks are limited to one per customer. |
-| WiFi dongle | eg https://thepihut.com/products/usb-wifi-adapter-for-the-raspberry-pi or https://thepihut.com/products/coloured-male-40-pin-2x20-hat-headers |
+| WiFi dongle | eg https://thepihut.com/products/usb-wifi-adapter-for-the-raspberry-pi, https://shop.pimoroni.com/products/official-raspberry-pi-wifi-dongle |
 | 40-pin 2x20 male headers for the Gpio | https://shop.pimoroni.com/products/male-40-pin-2x20-hat-header |
 | USB to micro USB adaptor | This USB to microUSB OTG Converter Shim from The PI Hut is great: https://thepihut.com/products/usb-to-microusb-otg-converter-shim |
 | Female / Female jumper cables | At least 10, eg from https://www.amazon.co.uk/gp/product/B00OL6JZ3C/ |
