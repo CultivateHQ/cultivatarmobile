@@ -17,7 +17,7 @@ A pictorial representation of the parts is [here](docs/robot_parts_sheet.pdf). H
 | Female / Female jumper cables | At least 10, eg from https://www.amazon.co.uk/gp/product/B00OL6JZ3C/ |
 | 5v power bank (portable phone charger) | Something like https://www.amazon.co.uk/gp/product/B00VJS9R4C. They should come with a USB to micro USB cable to connect to the PI | 
 | Micro SD card, at least 4GB | Bigger is ok. eg https://www.amazon.co.uk/Kingston-8GB-Micro-SD-HC/dp/B001CQT0X4/ |
-| 2 x 28Byj steppe motors with ULN2003 controllers | eg 5 pieces from here https://www.amazon.co.uk/gp/product/B00SSQAITQ | 
+| 2 x 28Byj stepper motors with ULN2003 controllers | eg 5 pieces from here https://www.amazon.co.uk/gp/product/B00SSQAITQ | 
 | Battery for stepper motors | For the giveaway we a used battery holder for 4 AA batteries, https://www.amazon.co.uk/gp/product/B00XHQ18DW. You need to provide between 5v and 12v to the steppers |
 
 Of course you do not have to use a PI Zero. Any PI (or other supported Nerves target) should work. You may need to slightly modify `apps/fw/mix.exs`for other targets.
