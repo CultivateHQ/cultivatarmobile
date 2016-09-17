@@ -1,24 +1,10 @@
 # CbSlack
 
-**TODO: Add description**
+Basic slack interface to the Bot, using [Slacker](https://github.com/koudelka/slacker).
 
-## Installation
+## Configuration
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
-  1. Add `cb_slack` to your list of dependencies in `mix.exs`:
-
-    ```elixir
-    def deps do
-      [{:cb_slack, "~> 0.1.0"}]
-    end
-    ```
-
-  2. Ensure `cb_slack` is started before your application:
-
-    ```elixir
-    def application do
-      [applications: [:cb_slack]]
-    end
-    ```
-
+```
+cp config/secret.example.exs config/secret.exs
+```
+Replace the placeholder with your Slack [Bot User](https://api.slack.com/bot-users) token.

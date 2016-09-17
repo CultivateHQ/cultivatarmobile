@@ -1,14 +1,27 @@
 # Fw
 
-To start your Nerves app:
+Master app from which Firmware images are build. Also
 
-  * Install dependencies with `mix deps.get`
-  * Create firmware with `mix firmware`
-  * Burn to an SD card with `mix firmware.burn`
+* sets up WiFi using [Nerves Interim Wifi](https://github.com/nerves-project/nerves_interim_wifi)
+* the time with [NTP](lib/fw/ntp.ex)
+* Registers as a named node, with the name CultivatarMobile@[Assigned IPv4 IP address]
 
-## Learn more
 
-  * Official docs: https://hexdocs.pm/nerves/getting-started.html
-  * Official website: http://www.nerves-project.org/
-  * Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
-  * Source: https://github.com/nerves-project/nerves
+## Configuration
+
+```
+cp config/secret.exs.example config/secret.exs
+```
+
+Replace the placeholders with your WiFi details.
+
+
+## Building the firmware image and burning
+
+See the [Umbrella project README](../../README.md). Note that this must all be done with `MIX_ENV=prod`
+
+## Note about being insecure
+
+The distributed node is great for remote shelling with iEX and looking at the process with Obseerver, but it is very insecure. Be aware of this
+
+Todo: more about its insecurity, how to disable, and how to remsh.

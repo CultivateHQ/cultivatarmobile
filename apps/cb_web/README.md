@@ -1,24 +1,5 @@
 # CbWeb
 
-**TODO: Add description**
+Uses [Plug](https://github.com/elixir-lang/plug) to provide a basic Slack interface.
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
-  1. Add `cb_web` to your list of dependencies in `mix.exs`:
-
-    ```elixir
-    def deps do
-      [{:cb_web, "~> 0.1.0"}]
-    end
-    ```
-
-  2. Ensure `cb_web` is started before your application:
-
-    ```elixir
-    def application do
-      [applications: [:cb_web]]
-    end
-    ```
-
+If I have time, I'll replace with Phoenix.
