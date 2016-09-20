@@ -8,7 +8,7 @@ defmodule Fw.Mixfile do
      version: "0.0.1",
      target: @target,
      archives: [nerves_bootstrap: "~> 0.1.4"],
-     deps_path: "../../deps/",
+     deps_path: "../../deps/#{@target}",
      build_path: "../../_build/#{@target}",
      config_path: "../../config/config.exs",
      lockfile: "../../mix.lock",
