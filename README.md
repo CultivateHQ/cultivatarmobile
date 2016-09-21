@@ -23,6 +23,8 @@ A pictorial representation of the parts is [here](docs/robot_parts_sheet.pdf). H
 
 Of course you do not have to use a PI Zero. Any PI (or other supported Nerves target) should work. You may need to slightly modify `apps/fw/mix.exs`for other targets.
 
+If you are in the USA, then you may find [this Amazon wish list](https://www.amazon.com/registry/wishlist/1RB8HLPX63U1Q/ref=cm_sw_r_tw_ws_x_N6P4xb8ZN9RGN) put together by [Joel Byler](https://twitter.com/joelbyler) useful.
+
 
 ## Soldering
 
@@ -66,7 +68,9 @@ Replace the placeholders in `apps/fw/config/secret.exs` with the details of your
 
 ## Building on your machine and testing
 
-In a slight departure from normal [Nerves](https://github.com/nerves-project/nerves) practice, all the applications in the umbrella project are configured to be run on a host machine (such as a Mac) in `dev` and `test` modes. Building for the firmware image must be done with `MIX_ENV` set to `prod`.
+In a slight departure from normal [Nerves](https://github.com/nerves-project/nerves) practice, all the applications in the umbrella project are configured to be run on a host machine (such as a Mac) in `dev` and `test` modes. See the blob post [here](http://www.cultivatehq.com/posts/compiling-and-testing-elixir-nerves-on-your-host-machine/).
+
+Building for the firmware image must be done with `MIX_ENV` set to `prod`.
 
 From the Umbrella application route you should be able to run.
 
